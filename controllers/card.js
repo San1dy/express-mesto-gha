@@ -46,7 +46,7 @@ function putLikeCard(req, res) {
       return res.send({ card });
     })
     .catch((err) => {
-      if (err.name === 'ValidationError' || err.name === 'CastError') {
+      if (err.name === 'CastError') {
         res.status(ERROR_VALID).send({ message: 'Переданны некорректные данные при добавлении лайка у карточки' });
       } else {
         res.status(ERROR_SERV).send({ message: 'Произошла ошибка на сервере' });
@@ -63,7 +63,7 @@ function deleteLikeCard(req, res) {
       return res.send({ card });
     })
     .catch((err) => {
-      if (err.name === 'ValidationError' || err.name === 'CastError') {
+      if (err.name === 'CastError') {
         res.status(ERROR_VALID).send({ message: 'Переданны некорректные данные при удалении лайка у карточки' });
       } else {
         res.status(ERROR_SERV).send({ message: 'Произошла ошибка на сервере' });

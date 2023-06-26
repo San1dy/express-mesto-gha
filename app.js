@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
+const {ERROR_VALID} = require('./utils/constants');
 
 const { PORT = 3000 } = process.env;
 const app = express();
@@ -33,7 +34,7 @@ app.use('/users', require('./routes/user'));
 app.use('/cards', require('./routes/card'));
 
 app.use((req, res) => {
-  res.status(404).send({ message: 'Страницы не существует' });
+  res.status(ERROR_VALID).send({ message: 'Страницы не существует' });
 });
 
 app.listen(PORT);
