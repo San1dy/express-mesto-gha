@@ -102,7 +102,6 @@ function login(req, res, next) {
     .catch(next);
 }
 
-
 module.exports = {
   getUsers, getCurrentUser, getUserById, createUser, updateProfile, updateAvatar, login,
 };
