@@ -22,7 +22,7 @@ function getCurrentUser(req, res, next) {
     })
     .catch((err) => {
       if (err.name === 'CastError') {
-        throw new ValidationError('Передано некорректное значение id пользователя');
+        return next(new ValidationError('Передано некорректное значение id пользователя'));
       }
       return next(err);
     });
@@ -101,6 +101,7 @@ function login(req, res, next) {
     })
     .catch(next);
 }
+
 
 module.exports = {
   getUsers, getCurrentUser, getUserById, createUser, updateProfile, updateAvatar, login,

@@ -33,6 +33,7 @@ app.use(cookieParser());
 app.post('/signin', celebrate({
   body: signInValidation,
 }), login);
+
 app.post('/signup', celebrate({
   body: signUpValidation,
 }), createUser);
